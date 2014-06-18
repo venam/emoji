@@ -1,0 +1,38 @@
+#!/usr/bin/env python2
+import json,sys
+
+EMOJI_JSON_LOC = "emoji.json"
+
+usage = "\nUsage of "+sys.argv[0]+"""
+In order specify the following:
+[file.json]    file to read from
+[output]       output to save to
+"""
+
+if len(sys.argv) != 3:
+    print usage
+    sys.exit(1)
+
+try:
+    emojis = json.load(open(sys.argv[1],'r'))
+except Exception,e:
+    print str(e)
+    print "Could not open emoji file "+sys.argv[0]
+    sys.exit(1)
+
+emoji_string = ""
+for emotion in emojis:
+    emoji_string += emotion+" "
+try:
+    out = open(sys.argv[2],'w')
+except:
+    print "Coult not open "+sys.argv[2]+" for writting"
+
+out.write( "#compdef emoji\n"+
+"\n"+
+"_arguments \\\n"+
+"  '-h[Print help message]:Print Help Message' \\\n"+
+"  '-l[List of available emojis]:List of available emojis' \\\n"+
+"  '-a[Emotion]:exposure:("+emoji_string+")' \\\n"+
+"  '-c[Emotion]:Expiration:("+emoji_string+")'")
+

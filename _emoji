@@ -1,0 +1,7 @@
+#compdef emoji
+
+_arguments \
+  '-h[Print help message]:Print Help Message' \
+  '-l[List of available emojis]:List of available emojis' \
+  '-a[Emotion]:exposure:(crazy scarred love monkey hugging shy angry confused whatever hurt thinking cat sleeping evil sad table worried friends excited surprised happy )' \
+  '-c[Emotion]:Expiration:(crazy scarred love monkey hugging shy angry confused whatever hurt thinking cat sleeping evil sad table worried friends excited surprised happy )'

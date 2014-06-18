@@ -1,0 +1,42 @@
+#!/usr/bin/env python2
+import json,random,sys,string,popen2
+
+EMOJI_JSON_LOC = "/etc/emoji/emoji.json"
+
+usage = "\nUsage of "+sys.argv[0]+""":  
+-h                    print this message
+"emotion"             return a random emoji related to it
+-l                    return the list of available emoji
+-a "emotion"          print all the emojis for the emotion
+-c "emotion"          output to clipboard using xsel
+"""
+
+try:
+    emojis = json.load(open(EMOJI_JSON_LOC,'r'))
+except Exception,e:
+    print str(e)
+    print "Could not open emoji file "+EMOJI_JSON_LOC
+    sys.exit(1)
+
+if len(sys.argv) != 2 and len(sys.argv) != 3:
+    print usage
+    sys.exit(1)
+
+if sys.argv[1] == "-h":
+    print usage
+if sys.argv[1] == "-l":
+    for emotion in emojis:
+        print emotion
+elif len(sys.argv) == 3:
+    if sys.argv[1] == "-a" and string.lower(sys.argv[2]) in emojis:
+        all_emo = emojis[string.lower(sys.argv[2])]
+        for emoji in all_emo:
+            print emoji
+    elif sys.argv[1] == "-c" and string.lower(sys.argv[2]) in emojis:
+        popen2.popen2("echo -n '"+emojis[string.lower(sys.argv[2])][random.randint(0,len(emojis[string.lower(sys.argv[2])])-1)]+"' |xsel -ib")
+elif string.lower(sys.argv[1]) in emojis:
+    print  emojis[string.lower(sys.argv[1])][random.randint(0,len(emojis[string.lower(sys.argv[1])])-1)]
+else:
+    print "Could not understand your request! Try something else..."
+
+
