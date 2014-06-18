@@ -5,14 +5,14 @@ This is a simple Python script generating Emoji (japanese Emoticon).
 It takes the emoji from a json file that sorts them by emotion.
 
 ##Usage
-`
+<pre>
 Usage of ./emoji:  
 -h                    print this message
 "emotion"             return a random emoji related to it
 -l                    return the list of available emoji
 -a "emotion"          print all the emojis for the emotion
 -c "emotion"          output to clipboard using xsel
-`
+</pre>
 
 ##Install
 The only dependency is xsel (if you want to copy directly to clipboard)<br>
