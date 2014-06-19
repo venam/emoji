@@ -3,6 +3,7 @@
 import json,random,sys,string,popen2
 
 EMOJI_JSON_LOC = "/etc/emoji/emoji.json"
+#EMOJI_JSON_LOC = "emoticons.json"
 
 usage = "\nUsage of "+sys.argv[0]+""":  
 -h                    print this message

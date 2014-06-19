@@ -32,8 +32,8 @@ except:
 out.write( "#compdef emoji\n"+
 "\n"+
 "_arguments \\\n"+
-"  '-h[Print help message]:Print Help Message' \\\n"+
-"  '-l[List of available emojis]:List of available emojis' \\\n"+
-"  '-a[Emotion]:exposure:("+emoji_string+")' \\\n"+
-"  '-c[Emotion]:Expiration:("+emoji_string+")'")
+"  '(-l -a -c)-h[Print help message]' \\\n"+
+"  '(-h -a -c)-l[List of available emojis]' \\\n"+
+"  '(-c -l -h)-a[List all emoji for the emotion specified]:emotion:("+emoji_string+")' \\\n"+
+"  '(-a -h -l)-c[Copy a random emoji for the emotion specified ]:emotion:("+emoji_string+")'")
 
