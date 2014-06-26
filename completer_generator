@@ -23,6 +23,7 @@ except Exception,e:
 
 emoji_string = ""
 for emotion in emojis:
+    emotion = emotion.replace("&","\\&")
     emoji_string += emotion+" "
 try:
     out = open(sys.argv[2],'w')
